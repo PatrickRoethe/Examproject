@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Blog Post</title>
+    <style>
+        /* CSS styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label,
+        input,
+        textarea {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"],
+        input[type="url"],
+        textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        button {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Edit Blog Post</h2>
+    <form id="editPostForm">
+        <label for="selectPost">Select Post:</label>
+        <select id="selectPost" name="selectPost"></select>
+
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" required>
+
+        <label for="body">Body:</label>
+        <textarea id="body" name="body" rows="6"></textarea>
+
+        <label for="tags">Tags (comma-separated):</label>
+        <input type="text" id="tags" name="tags">
+
+        <label for="mediaUrl">Media URL:</label>
+        <input type="url" id="mediaUrl" name="mediaUrl">
+
+        <label for="mediaAlt">Media Alt Text:</label>
+        <input type="text" id="mediaAlt" name="mediaAlt">
+
+        <input type="submit" value="Update Post">
+    </form>
+
+    <script>
+        // Function to store tokens in local storage
+        function storeTokens(accessToken, apiKey) {
+            localStorage.setItem('accessToken', accessToken);
+            localStorage.setItem('apiKey', apiKey);
+        }
+
+        // Function to retrieve tokens from local storage
+        function getTokens() {
+            const accessToken = localStorage.getItem('accessToken');
+            const apiKey = localStorage.getItem('apiKey');
+            return { accessToken, apiKey };
+        }
+
+        // Function to handle delete post functionality
+        async function deletePost(postId) {
+            try {
+                const { accessToken, apiKey } = getTokens();
+
+                if (!accessToken || !apiKey) {
+                    alert('Please log in to delete the blog post');
+                    return;
+                }
+
+                const response = await fetch(`https://v2.api.noroff.dev/blog/posts/Patrick/${postId}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'Authorization': `Bearer ${accessToken}`,
+                        'X-Noroff-API-Key': apiKey
+                    }
+                });
+
+                if (response.status === 204) {
+                    alert('Post deleted successfully!');
+                    // Reload post list
+                    fetchAndPopulatePosts();
+                    // Clear title input field
+                    document.getElementById('title').value = '';
+                } else {
+                    console.error('Failed to delete post:', response.statusText);
+                    alert('Failed to delete post. Please try again later.');
+                }
+            } catch (error) {
+                console.error('Error deleting post:', error);
+                alert('An unexpected error occurred while deleting the post.');
+            }
+        }
+
+        // JavaScript code for handling edit post functionality
+        const editPostForm = document.getElementById('editPostForm');
+        const selectPost = document.getElementById('selectPost');
+
+        // Function to fetch and populate posts in the dropdown
+        async function fetchAndPopulatePosts() {
+            try {
+                const response = await fetch('https://v2.api.noroff.dev/blog/posts/Patrick');
+                const data = await response.json();
+
+                if (response.ok) {
+                    // Clear existing options
+                    selectPost.innerHTML = '';
+
+                    data.data.forEach(post => {
+                        const option = document.createElement('option');
+                        option.value = post.id;
+                        option.textContent = post.title;
+                        selectPost.appendChild(option);
+                    });
+                } else {
+                    console.error('Failed to fetch posts:', data.error.message);
+                }
+            } catch (error) {
+                console.error('Error fetching posts:', error);
+            }
+        }
+
+        // Function to fetch post details when a post is selected
+        async function fetchPostDetails(postId) {
+            try {
+                const response = await fetch(`https://v2.api.noroff.dev/blog/posts/Patrick/${postId}`);
+                const postData = await response.json();
+
+                if (response.ok) {
+                    // Populate form fields with post data
+                    document.getElementById('title').value = postData.data.title;
+                    document.getElementById('body').value = postData.data.body || '';
+                    document.getElementById('tags').value = postData.data.tags.join(', ');
+                    document.getElementById('mediaUrl').value = postData.data.media ? postData.data.media.url : '';
+                    document.getElementById('mediaAlt').value = postData.data.media ? postData.data.media.alt : '';
+                } else {
+                    console.error('Failed to fetch post details:', postData.error.message);
+                }
+            } catch (error) {
+                console.error('Error fetching post details:', error);
+            }
+        }
+
+        // Fetch and populate posts when the page loads
+        window.addEventListener('DOMContentLoaded', fetchAndPopulatePosts);
+
+        // Event listener for when a post is selected
+        selectPost.addEventListener('change', (event) => {
+            const postId = event.target.value;
+            fetchPostDetails(postId);
+        });
+
+        // Event listener for form submission
+        editPostForm.addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            const formData = new FormData(editPostForm);
+            const requestBody = Object.fromEntries(formData);
+
+            try {
+                const { accessToken, apiKey } = getTokens();
+
+                if (!accessToken || !apiKey) {
+                    alert('Please log in to update the blog post');
+                    return;
+                }
+
+                const baseURL = 'https://v2.api.noroff.dev';
+                const postId = requestBody.selectPost;
+                delete requestBody.selectPost; // Remove selectPost from the request body
+                const response = await fetch(`${baseURL}/blog/posts/Patrick/${postId}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${accessToken}`,
+                        'X-Noroff-API-Key': apiKey
+                    },
+                    body: JSON.stringify(requestBody)
+                });
+
+                if (response.ok) {
+                    alert('Blog post updated successfully!');
+                    editPostForm.reset();
+                    fetchAndPopulatePosts(); // Refresh post list
+                } else {
+                    const errorData = await response.json();
+                    alert('Failed to update blog post: ' + errorData.error.message);
+                }
+            } catch (error) {
+                console.error('Error updating blog post:', error);
+                alert('An unexpected error occurred while updating the blog post.');
+            }
+        });
+
+        // Delete button click event listener
+        const deleteButton = document.createElement('button');
+        deleteButton.innerText = 'Delete Post';
+        deleteButton.addEventListener('click', () => {
+            const postId = selectPost.value; // Get the postId from the selected option
+            deletePost(postId); // Call deletePost function with postId parameter
+            // After deletion, clear the form fields
+            editPostForm.reset();
+        });
+        editPostForm.appendChild(deleteButton);
+    </script>
+</body>
+
+</html>
