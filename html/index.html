@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homepage - Blog Posts</title>
-    <link rel="stylesheet" href="../../css/nav-footer-styles.css">
-    <link rel="stylesheet" href="../../css/homepage-style.css">
+    <!-- Update the path to go up two levels to access css -->
+    <link rel="stylesheet" href="../css/nav-footer-styles.css">
+    <link rel="stylesheet" href="../css/homepage-style.css">
 </head>
 
 <body>
@@ -14,12 +15,12 @@
     <nav class="navbar">
         <div class="logo">Hotview Labs</div>
         <div class="menu">
-            <a href="/html/index.html" class="home-icon">🏠</a>
-            <a href="/html/index.html" class="home-text">Home</a>
-            <a href="/html/post/make.html" class="login-register" id="create-post-link" style="display:none;">Create
-                Post</a>
-            <a href="/html/post/edit.html" class="login-register" id="edit-post-link" style="display:none;">Edit
-                Post</a>
+            <!-- Updated paths to go up one level then into html to find index.html -->
+            <a href="../index.html" class="home-icon">🏠</a>
+            <a href="../index.html" class="home-text">Home</a>
+            <!-- Correct paths for internal links within the html directory -->
+            <a href="post/make.html" class="login-register" id="create-post-link" style="display:none;">Create Post</a>
+            <a href="post/edit.html" class="login-register" id="edit-post-link" style="display:none;">Edit Post</a>
             <a href="#" id="logout-link" style="display:none;">Logout</a>
         </div>
     </nav>
@@ -93,8 +94,9 @@
     <footer class="footer">
         <p>&copy; 2023 Hotview Labs. All rights reserved.</p>
     </footer>
-    <script src="../../js/navbar.js"></script>
-    <script src="../../js/homepage.js"></script>
+    <!-- Update the path to go up two levels to access js -->
+    <script src="../js/navbar.js"></script>
+    <script src="../js/homepage.js"></script>
 </body>
 
 </html>
