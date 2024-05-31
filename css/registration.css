@@ -29,7 +29,7 @@ body {
     max-width: 400px;
     box-sizing: border-box;
     margin: auto;
-    margin-top: 100px; /* Added margin-top */
+    margin-top: 150px; /* Added margin-top */
 }
 
 .registration-container h2 {
