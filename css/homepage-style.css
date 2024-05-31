@@ -97,6 +97,25 @@ header {
     outline: none;
 }
 
+.carousel-dots {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.carousel-dots .dot {
+    height: 15px;
+    width: 15px;
+    margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    transition: background-color 0.6s ease;
+}
+
+.carousel-dots .dot.active {
+    background-color: #717171;
+}
 
 .post-grid {
     display: grid;

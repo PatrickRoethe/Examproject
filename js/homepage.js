@@ -18,18 +18,18 @@ async function fetchAndDisplayLatestPosts() {
       data.data.slice(0, 3).forEach((post, index) => {
         const carouselItem = carouselItems[index];
         carouselItem.innerHTML = `
-            <img src="${
-              post.media
-                ? post.media.url
-                : "https://via.placeholder.com/800x400"
-            }" alt="${post.title}">
-            <div class="carousel-caption">
-              <h3>${post.title}</h3>
-              <button class="carousel-button" onclick="redirectToPostPage('${
-                post.id
-              }')">Read More</button>
-            </div>
-          `;
+              <img src="${
+                post.media
+                  ? post.media.url
+                  : "https://via.placeholder.com/800x400"
+              }" alt="${post.title}">
+              <div class="carousel-caption">
+                <h3>${post.title}</h3>
+                <button class="carousel-button" onclick="redirectToPostPage('${
+                  post.id
+                }')">Read More</button>
+              </div>
+            `;
       });
 
       // Update the post grid with the latest 12 posts
@@ -71,21 +71,38 @@ function initializeCarousel() {
   let currentSlide = 0;
   const totalSlides = 3; // Total number of slides in the carousel
   const carouselItems = document.querySelectorAll(".carousel-item");
+  const dots = document.querySelectorAll(".dot");
 
   document.getElementById("prev-button").addEventListener("click", () => {
     carouselItems[currentSlide].classList.remove("active");
+    dots[currentSlide].classList.remove("active");
     currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
     carouselItems[currentSlide].classList.add("active");
+    dots[currentSlide].classList.add("active");
   });
 
   document.getElementById("next-button").addEventListener("click", () => {
     carouselItems[currentSlide].classList.remove("active");
+    dots[currentSlide].classList.remove("active");
     currentSlide = (currentSlide + 1) % totalSlides;
     carouselItems[currentSlide].classList.add("active");
+    dots[currentSlide].classList.add("active");
   });
 
   // Activate the first slide initially
   carouselItems[currentSlide].classList.add("active");
+  dots[currentSlide].classList.add("active");
+
+  // Add event listeners to dots
+  dots.forEach((dot, index) => {
+    dot.addEventListener("click", () => {
+      carouselItems[currentSlide].classList.remove("active");
+      dots[currentSlide].classList.remove("active");
+      currentSlide = index;
+      carouselItems[currentSlide].classList.add("active");
+      dots[currentSlide].classList.add("active");
+    });
+  });
 }
 
 // Function to redirect to post/index.html with post ID
