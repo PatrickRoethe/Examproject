@@ -30,7 +30,7 @@ body {
     top: 0;
     left: 0;
     z-index: 1000;
-    margin-bottom: 40px; /* Added margin-bottom to avoid overlap */
+    margin-bottom: 40px; 
 }
 
 .navbar a {
