@@ -60,13 +60,21 @@ body {
 /* Responsive Navbar */
 @media (max-width: 768px) {
     .navbar {
-        flex-direction: row; /* Ensure horizontal layout */
-        justify-content: space-between; /* Space out the items */
+        flex-direction: column; /* Stack navbar items vertically on mobile */
+        padding: 20px;
     }
 
     .navbar .menu {
-        flex-direction: row; /* Horizontal layout for menu items */
-        gap: 10px;
+        flex-direction: column; /* Stack menu items vertically */
+        align-items: center;
+        width: 100%;
+    }
+
+    .navbar .menu a {
+        width: 100%;
+        text-align: center;
+        padding-left: 0;
+        display: block;
     }
 
     .navbar .menu a.home-icon {
