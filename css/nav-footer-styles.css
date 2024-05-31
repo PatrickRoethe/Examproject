@@ -20,9 +20,9 @@ body {
     justify-content: space-between;
     align-items: center;
     background-color: #007bff;
-    padding: 20px 40px;
+    padding: 10px 20px;
     color: white;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     font-size: 1.2em;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     width: 100%;
@@ -54,62 +54,19 @@ body {
 .navbar .menu {
     display: flex;
     gap: 20px;
-}
-
-.navbar .menu a.home-icon {
-    display: none;
-    font-size: 1.3em;
-}
-
-.content {
-    flex: 1;
-    padding: 60px 20px; /* Increased top padding to avoid overlap with fixed navbar */
-    text-align: center;
-    margin-top: 80px; /* Added margin to push content down under the navbar */
-}
-
-.content h1 {
-    font-size: 3em;
-    margin-bottom: 0.5em;
-    color: #333;
-}
-
-.content p {
-    font-size: 1.2em;
-    color: #666;
-}
-
-.footer {
-    background-color: #007bff;
-    color: white;
-    text-align: center;
-    padding: 20px 0;
-    width: 100%;
-    position: fixed; /* Fixes footer to the bottom */
-    bottom: 0;
-    left: 0;
-    z-index: 1000; /* Ensures footer stays on top of other content */
+    flex-wrap: nowrap; /* Ensure menu items do not wrap */
 }
 
 /* Responsive Navbar */
 @media (max-width: 768px) {
     .navbar {
-        flex-direction: column;
-        align-items: center;
-        padding: 20px;
+        flex-direction: row; /* Ensure horizontal layout */
+        justify-content: space-between; /* Space out the items */
     }
 
     .navbar .menu {
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-    }
-
-    .navbar .menu a {
-        width: 100%;
-        text-align: center;
-        padding-left: 0;
-        display: block;
+        flex-direction: row; /* Horizontal layout for menu items */
+        gap: 10px;
     }
 
     .navbar .menu a.home-icon {
@@ -142,4 +99,34 @@ body {
         font-size: 1em;
         padding: 8px 15px;
     }
+}
+
+.content {
+    flex: 1;
+    padding: 60px 20px; /* Increased top padding to avoid overlap with fixed navbar */
+    text-align: center;
+    margin-top: 80px; /* Added margin to push content down under the navbar */
+}
+
+.content h1 {
+    font-size: 3em;
+    margin-bottom: 0.5em;
+    color: #333;
+}
+
+.content p {
+    font-size: 1.2em;
+    color: #666;
+}
+
+.footer {
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    width: 100%;
+    position: fixed; /* Fixes footer to the bottom */
+    bottom: 0;
+    left: 0;
+    z-index: 1000; /* Ensures footer stays on top of other content */
 }
