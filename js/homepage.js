@@ -18,18 +18,18 @@ async function fetchAndDisplayLatestPosts() {
       data.data.slice(0, 3).forEach((post, index) => {
         const carouselItem = carouselItems[index];
         carouselItem.innerHTML = `
-                    <img src="${
-                      post.media
-                        ? post.media.url
-                        : "https://via.placeholder.com/800x400"
-                    }" alt="${post.title}">
-                    <div class="carousel-caption">
-                        <h3>${post.title}</h3>
-                        <button class="carousel-button" onclick="redirectToPostPage('${
-                          post.id
-                        }')">Read More</button>
-                    </div>
-                `;
+            <img src="${
+              post.media
+                ? post.media.url
+                : "https://via.placeholder.com/800x400"
+            }" alt="${post.title}">
+            <div class="carousel-caption">
+              <h3>${post.title}</h3>
+              <button class="carousel-button" onclick="redirectToPostPage('${
+                post.id
+              }')">Read More</button>
+            </div>
+          `;
       });
 
       // Update the post grid with the latest 12 posts
@@ -90,7 +90,7 @@ function initializeCarousel() {
 
 // Function to redirect to post/index.html with post ID
 function redirectToPostPage(postId) {
-  window.location.href = `post/index.html?id=${postId}`;
+  window.location.href = `html/post/index.html?id=${postId}`;
 }
 
 // Call the function to fetch and display latest posts when the page loads
