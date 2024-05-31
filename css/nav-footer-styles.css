@@ -19,7 +19,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #007bff;
+    background-color: #0056b3; /* Darker blue background for better contrast */
     padding: 10px 20px;
     color: white;
     flex-wrap: nowrap;
@@ -42,7 +42,7 @@ body {
 
 .navbar a:hover,
 .navbar a.active {
-    background-color: #0056b3;
+    background-color: #003f7f; /* Darker hover color for better contrast */
     border-radius: 4px;
     transform: translateY(-2px);
 }
@@ -139,7 +139,7 @@ body {
 }
 
 .footer {
-    background-color: #007bff;
+    background-color: #0056b3; /* Match the navbar color */
     color: white;
     text-align: center;
     padding: 20px 0;
