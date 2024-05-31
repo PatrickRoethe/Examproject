@@ -19,6 +19,7 @@ body {
     width: 100%;
     margin: auto;
     margin-top: 100px; /* Added margin-top */
+    margin-bottom: 100px;
 }
 
 h2 {
@@ -35,6 +36,7 @@ form {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-bottom: 10px;
     margin-top: 20px;
+    
 }
 
 label,
