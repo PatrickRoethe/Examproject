@@ -97,11 +97,17 @@ body {
 
 @media (max-width: 460px) {
     .navbar .menu {
-        flex-direction: column; /* Stack menu items vertically */
+        flex-direction: row; /* Horizontal layout for menu items */
+        flex-wrap: wrap; /* Allow wrapping */
+        justify-content: center;
+        width: 100%;
     }
 
     .navbar .menu a {
-        margin-bottom: 10px; /* Add spacing between menu items */
+        font-size: 0.9em; /* Decrease font size for smaller screens */
+        padding: 5px 10px; /* Adjust padding for smaller screens */
+        text-align: center;
+        width: 33.33%; /* Ensure three items per row */
     }
 }
 
@@ -112,26 +118,11 @@ body {
     }
 }
 
-@media (max-width: 450px) {
-    .navbar {
-        padding: 10px 20px;
-    }
-
-    .navbar .logo {
-        font-size: 28px;
-    }
-
-    .navbar .menu a {
-        font-size: 1em;
-        padding: 8px 15px;
-    }
-}
-
 .content {
     flex: 1;
     padding: 60px 20px;
     text-align: center;
-    margin-top: 100px; /* Adjusted margin-top to avoid overlap with navbar */
+    margin-top: 120px; /* Adjusted margin-top to avoid overlap with navbar */
 }
 
 .content h1 {
