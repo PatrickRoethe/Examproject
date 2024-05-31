@@ -26,10 +26,10 @@ body {
     font-size: 1.2em;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     width: 100%;
-    position: fixed; /* Ensures navbar is fixed at the top */
+    position: fixed;
     top: 0;
     left: 0;
-    z-index: 1000; /* High z-index to keep navbar on top */
+    z-index: 1000;
 }
 
 .navbar a {
@@ -54,18 +54,25 @@ body {
 .navbar .menu {
     display: flex;
     gap: 20px;
-    flex-wrap: nowrap; /* Ensure menu items do not wrap */
+    flex-wrap: nowrap;
+}
+
+/* Hide the home icon on desktop */
+.navbar .menu a.home-icon {
+    display: none;
+    font-size: 1.8em;
 }
 
 /* Responsive Navbar */
 @media (max-width: 768px) {
     .navbar {
-        flex-direction: column; /* Stack navbar items vertically on mobile */
+        flex-direction: column;
+        align-items: center;
         padding: 20px;
     }
 
     .navbar .menu {
-        flex-direction: column; /* Stack menu items vertically */
+        flex-direction: column;
         align-items: center;
         width: 100%;
     }
@@ -77,9 +84,9 @@ body {
         display: block;
     }
 
+    /* Show the home icon on mobile */
     .navbar .menu a.home-icon {
         display: block;
-        font-size: 1.8em;
     }
 
     .navbar .menu a.home-text {
@@ -111,9 +118,9 @@ body {
 
 .content {
     flex: 1;
-    padding: 60px 20px; /* Increased top padding to avoid overlap with fixed navbar */
+    padding: 60px 20px;
     text-align: center;
-    margin-top: 80px; /* Added margin to push content down under the navbar */
+    margin-top: 80px;
 }
 
 .content h1 {
@@ -133,8 +140,81 @@ body {
     text-align: center;
     padding: 20px 0;
     width: 100%;
-    position: fixed; /* Fixes footer to the bottom */
+    position: fixed;
     bottom: 0;
     left: 0;
-    z-index: 1000; /* Ensures footer stays on top of other content */
+    z-index: 1000;
+}
+
+.login-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #f4f4f4;
+    padding-top: 60px;
+}
+
+.login-container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+}
+
+.login-container h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    color: #007bff;
+    font-size: 24px;
+}
+
+.login-container label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.login-container input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.login-container input[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 12px;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.login-container input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+    .login-container {
+        padding: 20px;
+    }
+
+    .login-container h2 {
+        font-size: 20px;
+    }
+
+    .login-container input[type="submit"] {
+        padding: 10px;
+        font-size: 14px;
+    }
 }
