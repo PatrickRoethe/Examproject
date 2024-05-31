@@ -25,8 +25,23 @@ function logout() {
   window.location.reload();
 }
 
+// Function to highlight the current page link
+function highlightCurrentPage() {
+  const links = document.querySelectorAll(".navbar a");
+  const currentUrl = window.location.href;
+
+  links.forEach((link) => {
+    if (link.href === currentUrl) {
+      link.classList.add("active");
+    }
+  });
+}
+
 // Add event listener to the logout link
 document.getElementById("logout-link").addEventListener("click", logout);
 
 // Call updateNavbar on page load
-document.addEventListener("DOMContentLoaded", updateNavbar);
+document.addEventListener("DOMContentLoaded", () => {
+  updateNavbar();
+  highlightCurrentPage();
+});
