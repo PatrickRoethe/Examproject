@@ -10,7 +10,6 @@
 </head>
 
 <body>
-    <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="logo">Hotview Labs</div>
         <div class="menu">
@@ -24,23 +23,17 @@
         </div>
     </nav>
 
-    <!-- Main Content Container -->
     <div class="container">
-        <!-- Welcome Message -->
         <div class="content">
             <h1>Welcome to Hotview Labs</h1>
             <p>Your source for the latest in tech research and development.</p>
             <p>Stay updated with the latest trends and insights from the tech industry.</p>
         </div>
-
-        <!-- Header Section -->
         <header>
             <h2>Latest Blog Posts</h2>
         </header>
 
-        <!-- Carousel Container -->
         <div class="carousel-container">
-            <!-- Carousel Item 1 -->
             <article id="carousel-item-0" class="carousel-item">
                 <img src="https://via.placeholder.com/800x400" alt="Placeholder Image">
                 <div class="carousel-caption">
@@ -48,7 +41,6 @@
                     <button class="carousel-button" onclick="redirectToPostPage('1')">Read More</button>
                 </div>
             </article>
-            <!-- Carousel Item 2 -->
             <article id="carousel-item-1" class="carousel-item">
                 <img src="https://via.placeholder.com/800x400" alt="Placeholder Image">
                 <div class="carousel-caption">
@@ -56,7 +48,6 @@
                     <button class="carousel-button" onclick="redirectToPostPage('2')">Read More</button>
                 </div>
             </article>
-            <!-- Carousel Item 3 -->
             <article id="carousel-item-2" class="carousel-item">
                 <img src="https://via.placeholder.com/800x400" alt="Placeholder Image">
                 <div class="carousel-caption">
@@ -64,23 +55,22 @@
                     <button class="carousel-button" onclick="redirectToPostPage('3')">Read More</button>
                 </div>
             </article>
-            <!-- Carousel Dots -->
+
             <div class="carousel-dots">
                 <span class="dot" data-slide="0"></span>
                 <span class="dot" data-slide="1"></span>
                 <span class="dot" data-slide="2"></span>
             </div>
-            <!-- Carousel Controls -->
+
             <div class="carousel-controls">
                 <button id="prev-button" class="carousel-button">Previous</button>
                 <button id="next-button" class="carousel-button">Next</button>
             </div>
         </div>
 
-        <!-- Post Grid -->
         <main id="postGrid" class="post-grid"></main>
 
-        <!-- Popup/modal for displaying individual blog post details -->
+
         <div id="postPopup" class="popup">
             <div class="popup-content">
                 <span class="close">&times;</span>
@@ -89,13 +79,13 @@
                 <p id="publicationDate">Publication Date</p>
                 <img id="postImage" src="https://via.placeholder.com/800x400" alt="Post Image">
                 <div id="postContent">Post content goes here...</div>
-                <!-- Shareable URL input field -->
+
                 <input type="text" id="shareUrl" class="share-url" readonly>
             </div>
         </div>
     </div>
 
-    <!-- Footer -->
+
     <footer class="footer">
         <p>&copy; 2023 Hotview Labs. All rights reserved.</p>
     </footer>
