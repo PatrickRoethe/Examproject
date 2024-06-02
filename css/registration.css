@@ -12,8 +12,8 @@ body {
 .main-content {
     flex: 1;
     overflow-y: auto;
-    margin-top: 60px; /* Height of navbar */
-    margin-bottom: 60px; /* Height of footer */
+    margin-top: 60px; 
+    margin-bottom: 60px; 
     padding: 20px;
     box-sizing: border-box;
 }

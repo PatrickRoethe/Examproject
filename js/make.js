@@ -1,10 +1,8 @@
-// Store tokens in local storage
 function storeTokens(accessToken, apiKey) {
   localStorage.setItem("accessToken", accessToken);
   localStorage.setItem("apiKey", apiKey);
 }
 
-// Retrieve tokens from local storage
 function getTokens() {
   const accessToken = localStorage.getItem("accessToken");
   const apiKey = localStorage.getItem("apiKey");
@@ -16,7 +14,6 @@ const createPostForm = document.getElementById("createPostForm");
 createPostForm.addEventListener("submit", async (event) => {
   event.preventDefault();
 
-  // Get form data
   const title = document.getElementById("title").value;
   const body = document.getElementById("body").value;
   const tags = document
@@ -26,14 +23,12 @@ createPostForm.addEventListener("submit", async (event) => {
   const mediaUrl = document.getElementById("mediaUrl").value;
   const mediaAlt = document.getElementById("mediaAlt").value;
 
-  // Construct request body
   const requestBody = {
     title,
     body,
     tags,
   };
 
-  // Include media property if mediaUrl and mediaAlt are provided
   if (mediaUrl && mediaAlt) {
     requestBody.media = {
       url: mediaUrl,

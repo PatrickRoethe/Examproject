@@ -22,7 +22,7 @@ body {
     justify-content: center;
     min-height: 100vh;
     background-color: #f4f4f4;
-    padding-top: 60px; /* Ensure content starts below the navbar */
+    padding-top: 60px; 
 }
 
 .login-container {

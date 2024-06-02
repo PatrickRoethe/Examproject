@@ -1,4 +1,3 @@
-// Function to fetch latest posts and display them on the homepage
 async function fetchAndDisplayLatestPosts() {
   try {
     const response = await fetch(
@@ -8,13 +7,12 @@ async function fetchAndDisplayLatestPosts() {
 
     if (response.ok) {
       const postGrid = document.getElementById("postGrid");
-      postGrid.innerHTML = ""; // Clear existing posts
+      postGrid.innerHTML = "";
 
-      // Select carousel items for updating
       const carouselItems = [0, 1, 2].map((i) =>
         document.getElementById(`carousel-item-${i}`)
       );
-      // Update carousel items with the latest three posts
+
       data.data.slice(0, 3).forEach((post, index) => {
         const carouselItem = carouselItems[index];
         carouselItem.innerHTML = `
@@ -32,11 +30,10 @@ async function fetchAndDisplayLatestPosts() {
               `;
       });
 
-      // Update the post grid with the latest 12 posts
       data.data.slice(0, 12).forEach((post) => {
         const postThumbnail = document.createElement("article");
         postThumbnail.classList.add("post-thumbnail");
-        // Event listener to show post details in popup/modal
+
         postThumbnail.addEventListener("click", () => {
           redirectToPostPage(post.id);
         });
@@ -56,7 +53,6 @@ async function fetchAndDisplayLatestPosts() {
         postGrid.appendChild(postThumbnail);
       });
 
-      // Initialize the carousel functionality
       initializeCarousel();
     } else {
       console.error("Failed to fetch posts:", data.error.message);
@@ -66,10 +62,9 @@ async function fetchAndDisplayLatestPosts() {
   }
 }
 
-// Carousel functionality
 function initializeCarousel() {
   let currentSlide = 0;
-  const totalSlides = 3; // Total number of slides in the carousel
+  const totalSlides = 3;
   const carouselItems = document.querySelectorAll(".carousel-item");
   const dots = document.querySelectorAll(".dot");
 
@@ -89,11 +84,9 @@ function initializeCarousel() {
     dots[currentSlide].classList.add("active");
   });
 
-  // Activate the first slide initially
   carouselItems[currentSlide].classList.add("active");
   dots[currentSlide].classList.add("active");
 
-  // Add event listeners to dots
   dots.forEach((dot, index) => {
     dot.addEventListener("click", () => {
       carouselItems[currentSlide].classList.remove("active");
@@ -105,10 +98,8 @@ function initializeCarousel() {
   });
 }
 
-// Function to redirect to post/index.html with post ID
 function redirectToPostPage(postId) {
   window.location.href = `html/post/index.html?id=${postId}`;
 }
 
-// Call the function to fetch and display latest posts when the page loads
 window.addEventListener("DOMContentLoaded", fetchAndDisplayLatestPosts);

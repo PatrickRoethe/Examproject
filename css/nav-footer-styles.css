@@ -19,7 +19,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #0056b3; /* Darker blue background for better contrast */
+    background-color: #0056b3; 
     padding: 10px 20px;
     color: white;
     flex-wrap: nowrap;
@@ -42,7 +42,7 @@ body {
 
 .navbar a:hover,
 .navbar a.active {
-    background-color: #003f7f; /* Darker hover color for better contrast */
+    background-color: #003f7f; 
     border-radius: 4px;
     transform: translateY(-2px);
 }
@@ -59,13 +59,13 @@ body {
     flex-wrap: nowrap;
 }
 
-/* Hide the home icon on desktop */
+
 .navbar .menu a.home-icon {
     display: none;
     font-size: 1.8em;
 }
 
-/* Responsive Navbar */
+
 @media (max-width: 768px) {
     .navbar {
         flex-direction: column;
@@ -87,7 +87,7 @@ body {
         display: block;
     }
 
-    /* Show the home icon on mobile */
+  
     .navbar .menu a.home-icon {
         display: block;
     }
@@ -99,17 +99,17 @@ body {
 
 @media (max-width: 460px) {
     .navbar .menu {
-        flex-direction: row; /* Horizontal layout for menu items */
-        flex-wrap: wrap; /* Allow wrapping */
+        flex-direction: row; 
+        flex-wrap: wrap; 
         justify-content: center;
         width: 100%;
     }
 
     .navbar .menu a {
-        font-size: 0.9em; /* Decrease font size for smaller screens */
-        padding: 5px 10px; /* Adjust padding for smaller screens */
+        font-size: 0.9em; 
+        padding: 5px 10px; 
         text-align: center;
-        width: 33.33%; /* Ensure three items per row */
+        width: 33.33%; 
     }
 }
 
@@ -124,7 +124,7 @@ body {
     flex: 1;
     padding: 60px 20px;
     text-align: center;
-    margin-top: 120px; /* Adjusted margin-top to avoid overlap with navbar */
+    margin-top: 120px; 
 }
 
 .content h1 {
@@ -139,7 +139,7 @@ body {
 }
 
 .footer {
-    background-color: #0056b3; /* Match the navbar color */
+    background-color: #0056b3; 
     color: white;
     text-align: center;
     padding: 20px 0;
