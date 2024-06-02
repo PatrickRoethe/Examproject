@@ -74,7 +74,7 @@ button {
 }
 
 input[type="submit"] {
-    background-color: #007bff;
+    background-color: #0056b3;
     color: white;
 }
 
@@ -83,12 +83,12 @@ input[type="submit"]:hover {
 }
 
 button {
-    background-color: red;
+    background-color: #b30000;
     color: white;
 }
 
 button:hover {
-    background-color: darkred;
+    background-color: #990000; 
 }
 
 
