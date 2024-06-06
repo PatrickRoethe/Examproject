@@ -16,3 +16,5 @@ https://netlifyadjustments--examproject007.netlify.app/html/post/make - Make/cre
 
 
 https://netlifyadjustments--examproject007.netlify.app/html/post/edit.html - Edit
+
+Figma file ( low fidelity) : https://www.figma.com/design/1fZLYh5f3mSCejsjYD0yh3/examproject1lowfidelity?t=x1HrKmlv9wr7QV5c-1
