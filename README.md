@@ -58,6 +58,8 @@ Thank you for visiting!
 
 
 Info to teacher:
+
+
 Username: patroe01271@stud.noroff.no
 Pw: Patrick123
 
