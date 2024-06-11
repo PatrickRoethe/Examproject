@@ -7,7 +7,6 @@ This is my exam project about creating a blog with all its contents. [Preview on
 - [Functions and Info for the Project](#functions-and-info-for-the-project)
 - [Tutorial](#tutorial)
 - [API and Endpoints](#api-and-endpoints)
-- [Update](#update)
 
 ## Functions and Info for the Project
 - **Login**: Only authenticated users should be able to log in.
