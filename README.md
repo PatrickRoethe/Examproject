@@ -12,6 +12,7 @@ This is my exam project about creating a blog with all its contents. [Preview on
 - **Login**: Only authenticated users should be able to log in.
 - **Create Post**: Users can create posts with pictures and titles.
 - **Use API**: Utilizes an API for handling blog posts.
+- **Detect LOgged in user**: Detects if user is logged in or not - hides/shows admin functions in navbar depending on logged in status ( api key).
 
 ### Authenticated User for Project
 - **Mail**: patroe01271@stud.noroff.no
