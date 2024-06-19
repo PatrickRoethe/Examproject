@@ -77,7 +77,7 @@ header {
 }
 
 .carousel-button {
-    background-color: #0056b3; /* Navbar color */
+    background-color: #0056b3; 
     color: white;
     border: none;
     padding: 10px;
@@ -90,7 +90,7 @@ header {
 }
 
 .carousel-button:hover {
-    background-color: #003f7f; /* Darker shade for hover */
+    background-color: #003f7f; 
 }
 
 .carousel-button:focus {
