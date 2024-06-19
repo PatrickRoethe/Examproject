@@ -15,15 +15,12 @@ registrationForm.addEventListener("submit", async (event) => {
     },
   };
 
-  // Remove empty avatar properties
   if (!requestBody.avatar.url) delete requestBody.avatar.url;
   if (!requestBody.avatar.alt) delete requestBody.avatar.alt;
 
-  // Remove empty avatar object if no properties are set
   if (Object.keys(requestBody.avatar).length === 0) delete requestBody.avatar;
 
   try {
-    // Use the API key if required
     const apiKey = localStorage.getItem("apiKey");
     const headers = {
       "Content-Type": "application/json",

@@ -77,7 +77,7 @@ header {
 }
 
 .carousel-button {
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: #0056b3; /* Navbar color */
     color: white;
     border: none;
     padding: 10px;
@@ -90,13 +90,32 @@ header {
 }
 
 .carousel-button:hover {
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: #003f7f; /* Darker shade for hover */
 }
 
 .carousel-button:focus {
     outline: none;
 }
 
+.carousel-dots {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.carousel-dots .dot {
+    height: 15px;
+    width: 15px;
+    margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    transition: background-color 0.6s ease;
+}
+
+.carousel-dots .dot.active {
+    background-color: #717171;
+}
 
 .post-grid {
     display: grid;
@@ -186,74 +205,4 @@ header {
     padding: 10px;
     width: 100%;
     box-sizing: border-box;
-}
-
-@media (max-width: 1024px) {
-    .post-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 768px) {
-    .container {
-        padding: 15px;
-        max-width: 100%;
-    }
-
-    .carousel-container {
-        max-width: 100%;
-    }
-
-    .carousel-item {
-        height: 300px;
-    }
-
-    .content h1 {
-        font-size: 2em;
-    }
-
-    .content p {
-        font-size: 1em;
-    }
-
-    .post-title {
-        font-size: 1.1em;
-    }
-
-    .post-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 480px) {
-    .post-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .content h1 {
-        font-size: 1.8em;
-    }
-
-    .content p {
-        font-size: 0.9em;
-    }
-
-    .post-title {
-        font-size: 1em;
-    }
-
-    .carousel-controls {
-        width: 90%;
-        left: 5%;
-    }
-
-    .carousel-button {
-        font-size: 12px;
-        padding: 8px;
-        background-color: rgba(0, 0, 0, 0.5);
-    }
-
-    .carousel-button:hover {
-        background-color: rgba(0, 0, 0, 0.7);
-    }
 }

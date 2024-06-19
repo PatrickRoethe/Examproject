@@ -5,16 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Registration</title>
-    <link rel="stylesheet" href="../../css/nav-footer-styles.css">
-    <link rel="stylesheet" href="../../css/registration.css">
+    <link rel="stylesheet" href="/css/nav-footer-styles.css">
+    <link rel="stylesheet" href="/css/registration.css">
 </head>
 
 <body class="registration-page">
     <nav class="navbar">
         <div class="logo">Hotview Labs</div>
         <div class="menu">
-            <a href="/html/index.html" class="home-icon">🏠</a>
-            <a href="/html/index.html" class="home-text">Home</a>
+            <a href="/index.html" class="home-icon">🏠</a>
+            <a href="/index.html" class="home-text">Home</a>
             <a href="/html/post/make.html" class="login-register" id="create-post-link" style="display:none;">Create
                 Post</a>
             <a href="/html/post/edit.html" class="login-register" id="edit-post-link" style="display:none;">Edit
@@ -23,36 +23,32 @@
         </div>
     </nav>
 
-    <div class="registration-container">
-        <form id="registrationForm">
-            <h2>User Registration</h2>
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" autocomplete="name" required>
-
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" autocomplete="email" required>
-
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" autocomplete="new-password" required>
-
-            <label for="bio">Bio:</label>
-            <textarea id="bio" name="bio" maxlength="160"></textarea>
-
-            <label for="avatarUrl">Avatar URL:</label>
-            <input type="url" id="avatarUrl" name="avatarUrl">
-
-            <label for="avatarAlt">Avatar Alt Text:</label>
-            <input type="text" id="avatarAlt" name="avatarAlt" maxlength="120">
-
-            <input type="submit" value="Register">
-        </form>
+    <div class="main-content">
+        <div class="registration-container">
+            <form id="registrationForm">
+                <h2>User Registration</h2>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" autocomplete="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" autocomplete="email" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" autocomplete="new-password" required>
+                <label for="bio">Bio:</label>
+                <textarea id="bio" name="bio" maxlength="160"></textarea>
+                <label for="avatarUrl">Avatar URL:</label>
+                <input type="url" id="avatarUrl" name="avatarUrl">
+                <label for="avatarAlt">Avatar Alt Text:</label>
+                <input type="text" id="avatarAlt" name="avatarAlt" maxlength="120">
+                <input type="submit" value="Register">
+            </form>
+        </div>
     </div>
 
     <footer class="footer">
         <p>&copy; 2023 Hotview Labs. All rights reserved.</p>
     </footer>
-    <script src="../../js/navbar.js"></script>
-    <script src="../../js/registration.js"></script>
+    <script src="/js/navbar.js"></script>
+    <script src="/js/registration.js"></script>
 </body>
 
 </html>

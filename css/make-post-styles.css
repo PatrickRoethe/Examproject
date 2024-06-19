@@ -18,13 +18,14 @@ body {
     max-width: 720px;
     width: 100%;
     margin: auto;
+    margin-top: 100px; 
+    margin-bottom: 40px;
 }
 
 h2 {
     color: #333;
     text-align: center;
     margin-bottom: 20px;
-    margin-top: 100px;
 }
 
 form {
@@ -57,7 +58,7 @@ textarea {
 
 input[type="submit"] {
     padding: 10px 20px;
-    background-color: #007bff;
+    background-color: #0056b3;
     color: white;
     border: none;
     border-radius: 4px;
@@ -67,18 +68,6 @@ input[type="submit"] {
 
 input[type="submit"]:hover {
     background-color: #0056b3;
-}
-
-.footer {
-    background-color: #007bff;
-    color: white;
-    text-align: center;
-    padding: 20px 0;
-    width: 100%;
-    position: relative;
-    bottom: 0;
-    left: 0;
-    margin-top: auto;
 }
 
 @media (max-width: 768px) {

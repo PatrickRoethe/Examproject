@@ -9,15 +9,13 @@ body {
     overflow: hidden;
 }
 
-.registration-page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding-top: 30px;
-    padding-bottom: 10px;
-    background-color: #f4f4f4;
+.main-content {
     flex: 1;
+    overflow-y: auto;
+    margin-top: 60px; 
+    margin-bottom: 60px; 
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 .registration-container {
@@ -27,7 +25,6 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 90%;
     max-width: 400px;
-    box-sizing: border-box;
     margin: auto;
 }
 
@@ -56,7 +53,7 @@ body {
 }
 
 .registration-container input[type="submit"] {
-    background-color: #007bff;
+    background-color: #0056b3;
     color: white;
     border: none;
     cursor: pointer;
@@ -71,13 +68,9 @@ body {
 }
 
 @media (max-width: 768px) {
-    .registration-page {
-        padding-top: 10px;
-        padding-bottom: 5px;
-    }
-
     .registration-container {
         padding: 10px;
         font-size: 14px;
+        margin-top: 80px;
     }
 }
